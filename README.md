@@ -1,2 +1,5 @@
 # buwangcisheng.github.io
-作业库
+
+## JS作业库2023-3-1
+
+1. 左右飞入的盒子
