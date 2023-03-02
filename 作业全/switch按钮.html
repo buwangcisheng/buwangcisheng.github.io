@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #button {
+            width: 300px;
+            height: 100px;
+            border: 20px solid black;
+            border-radius: 80px;
+            position: relative;
+        }
+
+        .indicator {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            background-color: aqua;
+            transition: .3s;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="button">
+        <i class="indicator"></i>
+    </div>
+
+    <script>
+        const div = document.querySelector('div')
+        const i = document.querySelector('i')
+        let timer = true
+        div.addEventListener('click', () => {
+            if (timer) {
+                i.style.marginLeft = '200px'
+                div.style.backgroundColor = 'white'
+                document.documentElement.style.backgroundColor = 'black'
+                div.style.border = '20px solid white';
+            } else {
+                i.style.marginLeft = '0px'
+                div.style.backgroundColor = 'black'
+                document.documentElement.style.backgroundColor = 'white'
+                div.style.border = '20px solid black';
+            }
+            timer = !timer
+        })
+    </script>
+</body>
+
+</html>

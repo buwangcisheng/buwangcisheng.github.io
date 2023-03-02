@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+        }
+
+        h1,
+        input,
+        button {
+            margin: 0;
+            padding: 0;
+        }
+
+        #login {
+            background-color: green;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            padding: 0px 0 40px;
+            text-align: center;
+        }
+        form input{
+            border: none;
+            width: 300px;
+        }
+        form input:not(input[type=button]){
+            border-bottom: 1px solid #fff;
+            background-color: green;
+            padding: 10px 0;
+            font-size: 24px;
+            color: #fff;
+        }
+        form input:not(input[type=button]):focus{
+            outline: none;
+        }
+        form input:not(input[type=button]) + label span{
+            color: aqua;
+            display: inline-block;
+            transition: .5s;
+        }
+        form input:not(input[type=button]):focus + label span{
+            transform: translateY(-7px);
+        }
+        form label{
+            position: absolute;
+            left: 0;
+            top: 15px;
+        }
+        .input{
+            /* border: 1px solid black; */
+            position: relative;
+        }
+        [type="button"]{
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: lightgray;
+        }
+        [type="button"]:hover{
+            background-color: mediumspringgreen;
+            cursor: pointer;
+        }
+        [type="button"]:active{
+            transform: scale(.98);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login">
+        <h1>登录</h1>
+        <form action="#">
+            <div class="row input">
+                <input type="text">
+                <label>Email</label>
+                <!-- <label>
+                    <span style="transition-duration: i*50 ms;">E</span>
+                    <span>m</span>
+                    <span>a</span>
+                    <span>i</span>
+                    <span>l</span>
+                </label> -->
+            </div>
+            <div class="row input">
+                <input type="Passwords">
+                <label>Passwords</label>
+            </div>
+            <div class="row">
+                <input type="button" value="登录">
+            </div>
+        </form>
+        <p>没有帐户？请先<a href="#">注册</a></p>
+    </div>
+
+    <script>
+        const labels = document.querySelectorAll('label')
+
+        labels.forEach(label => {
+            label.innerHTML = label.innerHTML.split('').map((letter,index) => {
+                return `<span style="transition-delay:${50*index}ms">${letter}</span>`
+            }).join('')
+        })
+        
+        
+    </script>
+</body>
+
+</html>

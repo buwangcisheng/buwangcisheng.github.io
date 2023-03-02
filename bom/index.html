@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- http://127.0.0.1:5500/2023%202%2028/index.html?eamil=xxx%40abc.com&pw=111111111&phone=22222222222 -->
+    <div class="success">
+        <p>注册成功</p>
+        <ul>
+            <li>邮箱: </li>
+            <li>密码：</li>
+            <li>手机号：</li>
+        </ul>
+    </div>
+
+    <script>
+        //http://127.0.0.1:5500/2023%202%2028/index.html?eamil=123%40163.com&pw=123&phone=123
+        const liArr = document.querySelectorAll('li')
+        // search  返回查询字符串
+        const queryStr = window.location.search
+        console.log(queryStr);
+        const arr = queryStr.slice(1).split('&')
+        console.log(arr);//
+        let email = arr[0].slice(6)
+        // console.log(email)
+        let mima = arr[1].slice(3)
+        let phone = arr[2].slice(6)
+        // console.log(mima)
+
+        liArr[0].innerHTML = `邮箱：${email}`
+        liArr[1].innerHTML = `密码：${mima}`
+        liArr[2].innerHTML = `手机号：${phone}`
+    </script>
+</body>
+</html>
