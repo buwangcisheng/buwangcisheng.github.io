@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        button,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #app {
+            width: 80vw;
+        }
+
+        button {
+            background-color: aqua;
+            width: 100%;
+            border: none;
+            padding: 10px 10px;
+            text-align: left;
+            position: relative;
+        }
+
+        button::after {
+            content: '+';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: pink;
+        }
+
+        .content {
+            /* height: 0; */
+            max-height: 0;
+            overflow: hidden;
+            background-color: antiquewhite;
+            transition: .8s;
+        }
+        .content p{
+            padding: 0 20px;
+        }
+        .show::after{
+            content: '-';
+        }
+        .show + .content{
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="app">
+        <div class="itme">
+            <button>第一部分</button>
+            <div class="content">
+                <p>JavaScript中NumberMAXSAFEINTEGER表示最大安全数字，计算结果是9007199254740991,即在这个数范围内不会出现精度丢失
+                    (小数除外)。但是一旦超过这个范围，js就会出现计算不准确的情况，这在大数计算的时候不得不依靠一些第三方库进行解决，因此官方提出了BigInt来解决此问题。JavaScript中NumberMAXSAFEINTEGER表示最大安全数字，计算结果是9007199254740991,即在这个数范围内不会出现精度丢失
+                    (小数除外)。但是一旦超过这个范围，js就会出现计算不准确的情况，这在大数计算的时候不得不依靠一些第三方库进行解决，因此官方提出了BigInt来解决此问题。</p>
+            </div>
+        </div>
+
+        <div class="itme">
+            <button>第二部分</button>
+            <div class="content">
+                <p>JavaScript中NumberMAXSAFEINTEGER表示最大安全数字，计算结果是9007199254740991,即在这个数范围内不会出现精度丢失
+                    (小数除外)。但是一旦超过这个范围，js就会出现计算不准确的情况，这在大数计算的时候不得不依靠一些第三方库进行解决，因此官方提出了BigInt来解决此问题。</p>
+            </div>
+        </div>
+
+        <div class="itme">
+            <button>第三部分</button>
+            <div class="content">
+                <p>JavaScript中NumberMAXSAFEINTEGER表示最大安全数字，计算结果是9007199254740991,即在这个数范围内不会出现精度丢失。js就会出现计算不准确的情况，这在大数计算的时候不得不依靠一些第三方库进行解决，因此官方提出了BigInt来解决此问题。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const btn = document.querySelectorAll('button')
+        let last = btn[0]
+
+        btn.forEach((b) => {
+            //点击btn
+            b.addEventListener('click', function () {
+                // console.log(b.classList.contains('show'))
+                if(b.classList.contains('show')){
+                //点击的不是同一个按钮
+                b.classList.toggle('show')
+                } else {
+                //点击的不是同一个按钮时执行：
+                last.classList.remove('show')
+                b.classList.add('show')
+                last = b
+                }
+
+                //2.修改上一个btn的max-height=0
+                // last.nextElementSibling.style.maxHeight = '0px'
+                //1.点击btn：修改nextElementsibling的height
+                // b.nextElementSibling.style.maxHeight = '200px'
+                //3.更新last为当前点击的btn
+                // last = b
+            })
+        })
+
+    </script>
+</body>
+
+</html>

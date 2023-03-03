@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #app {
+            width: 1000px;
+            /* border: 1px solid red; */
+            height: 100%;
+            display: flex;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            /* background-color: black; */
+            gap: 7px;
+        }
+
+        #app div {
+            width: 20px;
+            height: 20px;
+            background-color: aqua;
+            transition: .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        const div = document.querySelector('#app')
+        // const colorArr = ['pink','blue','red','yellow']
+        let timer
+
+        for (let i = 0; i < 814; i++) {
+            div.innerHTML += '<div></div>'
+        }
+        const divArr = document.querySelectorAll('#app div')
+        divArr.forEach((div, index) => {
+            div.addEventListener('mouseover', () => {
+                // div.style.background = `${colorArr[index % colorArr.length]}`
+                div.style.background = rgb()
+            })
+            div.addEventListener('mouseout', () => {
+                timer = setTimeout(() => {
+                    div.style.background = 'aqua'
+                }, 1000);
+            })
+        })
+        function rgb() {//rgb颜色随机
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r},${g},${b})`;
+        }
+    </script>
+</body>
+
+</html>
